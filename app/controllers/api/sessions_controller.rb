@@ -8,10 +8,9 @@ class Api::SessionsController < ApplicationController
                                      params[:user][:password])
     if @user
       sign_in(@user)
-      render :new
+      render :show
     else
-      flash.now[:errors] = "invalid credentials"
-      render :new
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
