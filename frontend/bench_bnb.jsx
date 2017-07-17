@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
-import { signUp, logIn, logOut } from './util/session_api_util';
+// import { signUp, logIn, logOut } from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
