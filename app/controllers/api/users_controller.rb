@@ -8,10 +8,9 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      render :new #somthing else i'm sure
+      render "api/users/show" #somthing else i'm sure
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new #somthing didfrent
+      render ["invalid do it right"] #somthing didfrent
     end
   end
 
