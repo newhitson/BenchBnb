@@ -5,7 +5,7 @@ import {
   RECEIVE_ERRORS
 } from '../actions/session_actions';
 
-const defaultState = () => (
+const nullUser = () => (
   {
   session: {
     currentUser: null,
@@ -13,14 +13,19 @@ const defaultState = () => (
   }
 });
 
-const SessionReducer = (state ={} , action) => {
+const SessionReducer = (state = nullUser , action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, { current_user: action.current_user });
+    const current_user = action.current_user;
+      return merge({}, nullUser, {
+         current_user
+       });
     case RECEIVE_ERRORS:
       const errors = action.errors;
-      return merge({}, state, {errors: [errors]});
+      return merge({}, nullUser, {
+        errors
+      });
     default:
       return state;
   }
