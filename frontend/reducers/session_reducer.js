@@ -5,7 +5,7 @@ import {
   RECEIVE_ERRORS
 } from '../actions/session_actions';
 
-const nullUser = () => (
+const nullUser = Object.freeze (
   {
   session: {
     currentUser: null,
