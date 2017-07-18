@@ -3,7 +3,7 @@ export const login = user => {
   return $.ajax({
     method: 'POST',
     url:'api/sesssion',
-    data: user
+    data: {user}
   });
 };
 
